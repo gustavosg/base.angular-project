@@ -1,0 +1,28 @@
+mat-sidenav-container {
+  // position: fixed;
+  // display: flex;
+  height: calc(100vh - 120px);
+
+  mat-sidenav {
+    background-color: #08aaaf;
+    display: flex;
+    flex: 1 1 auto;
+
+    mat-nav-list {
+
+      background-color: #08aaaf;
+
+      a {
+        mat-icon {
+          color: #ffffff;
+        }
+
+        span {
+          display: contents;
+          text-decoration: none !important;
+          color: #ffffff !important;
+        }
+      }
+    }
+  }
+}

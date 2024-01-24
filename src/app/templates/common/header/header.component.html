@@ -1,0 +1,22 @@
+<mat-toolbar class="header mat-elevation-z4">
+  <button mat-icon-button *ngIf="isLogged()" (click)="toggleMenu()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <a routerLink="/"
+    ><span><mat-icon class="v-middle">home</mat-icon></span> {{ title }}</a
+  >
+  <ng-container *ngIf="isLogged(); else elseTemplate">
+    <span class="toolbar-spacer-right"></span>
+    <a (click)="logout()"><mat-icon>logout</mat-icon> LogOut</a>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <span class="toolbar-spacer-right"></span>
+    <a routerLink="/account/register"
+      ><mat-icon class="v-middle">account_circle</mat-icon> Register</a
+    >
+    <a routerLink="/account/login"
+      ><mat-icon class="v-middle">login</mat-icon> Login</a
+    >
+  </ng-template>
+</mat-toolbar>

@@ -1,0 +1,82 @@
+<form [formGroup]="loginForm" (ngSubmit)="doLogin()">
+  <mat-card class="form-group">
+    <mat-card-header>
+      <mat-card-title> Login </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>UserName</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="user name"
+          id="login"
+          name="login"
+          formControlName="login"
+        />
+        <!-- [formControl]="loginForm.controls['login']" -->
+
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            loginForm.invalid &&
+            (loginForm.touched || loginForm.dirty) &&
+            loginForm.controls['login'].errors
+          "
+        >
+          <div *ngIf="loginForm.controls.login.errors?.['required']">
+            E-mail is Required
+          </div>
+          <div *ngIf="loginForm.controls.login.errors?.['email']">
+            Should be a email
+          </div>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          type="password"
+          placeholder="label"
+          id="password"
+          name="password"
+          value=""
+          [formControl]="loginForm.controls['password']"
+        />
+
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            loginForm.invalid &&
+            (loginForm.touched || loginForm.dirty) &&
+            loginForm.controls['password'].errors
+          "
+        >
+          <div *ngIf="loginForm.controls!.password!.errors!['required']">
+            Password is Required
+          </div>
+        </div>
+      </mat-form-field>
+
+      <div class="flat pull-right">
+        <button
+          type="button"
+          mat-raised-button
+          class="buttons"
+          (click)="clearFields()"
+        >
+          <mat-icon>clear</mat-icon> Clear
+        </button>
+        <button
+          mat-raised-button
+          color="primary"
+          class="buttons"
+          [disabled]="!loginForm.valid"
+        >
+          <mat-icon>keyboard_return</mat-icon>Login
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</form>

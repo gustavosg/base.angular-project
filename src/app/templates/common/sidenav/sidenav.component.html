@@ -1,0 +1,33 @@
+<mat-sidenav-container class="mat-elevation-z4" autosize="true">
+  <mat-sidenav
+    #drawer
+    disableClose="true"
+    mode="side"
+    *ngIf="isAuthenticated()"
+    [opened]="true"
+  >
+    <mat-nav-list>
+      <a routerLink="/" mat-list-item
+        ><span><mat-icon class="v-middle">home</mat-icon> </span>
+
+        <span *ngIf="getSidebarStatus()">Home</span>
+      </a>
+      <a routerLink="/account/my-profile" mat-list-item
+        ><span>
+          <mat-icon class="v-middle">account_circle</mat-icon>
+        </span>
+        <span *ngIf="getSidebarStatus()">My Profile</span>
+      </a>
+      <a routerLink="/account/change-password" mat-list-item
+        ><span>
+          <mat-icon class="v-middle">pin</mat-icon>
+        </span>
+        <span *ngIf="getSidebarStatus()">Change Password</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
