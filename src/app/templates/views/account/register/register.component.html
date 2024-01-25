@@ -20,23 +20,23 @@
           value=""
           [formControl]="registerForm.controls!.firstName"
         />
-        <div
-          class="alert alert-danger"
-          *ngIf="
-            registerForm.invalid &&
-            (registerForm.controls!.firstName!.touched ||
-              registerForm.controls!.firstName!.dirty) &&
-            registerForm.controls!.firstName!.errors
-          "
-        >
-          <div *ngIf="registerForm.controls!.firstName!.errors!['required']">
-            FirstName is Required
-          </div>
-          <div *ngIf="registerForm.controls!.firstName!.errors!['minlength']">
-            FirstName minimum length is 3 digits
-          </div>
-        </div>
       </mat-form-field>
+      <div
+        class="invalid-feedback"
+        *ngIf="
+          registerForm.invalid &&
+          (registerForm.controls!.firstName!.touched ||
+            registerForm.controls!.firstName!.dirty) &&
+          registerForm.controls!.firstName!.errors
+        "
+      >
+        <div *ngIf="registerForm.controls!.firstName!.errors!['required']">
+          FirstName is Required
+        </div>
+        <div *ngIf="registerForm.controls!.firstName!.errors!['minlength']">
+          FirstName minimum length is 3 digits
+        </div>
+      </div>
       <mat-form-field>
         <mat-label>Last Name</mat-label>
         <input
@@ -45,23 +45,23 @@
           value=""
           [formControl]="registerForm.controls!.lastName"
         />
-        <div
-          class="alert alert-danger"
-          *ngIf="
-            registerForm.invalid &&
-            (registerForm.controls!.lastName!.touched ||
-              registerForm.controls!.lastName!.dirty) &&
-            registerForm.controls!.lastName!.errors
-          "
-        >
-          <div *ngIf="registerForm.controls!.lastName!.errors!['required']">
-            LastName is Required
-          </div>
-          <div *ngIf="registerForm.controls!.lastName!.errors!['minlength']">
-            LastName minimum length is 3 digits
-          </div>
-        </div>
       </mat-form-field>
+      <div
+        class="invalid-feedback"
+        *ngIf="
+          registerForm.invalid &&
+          (registerForm.controls!.lastName!.touched ||
+            registerForm.controls!.lastName!.dirty) &&
+          registerForm.controls!.lastName!.errors
+        "
+      >
+        <div *ngIf="registerForm.controls!.lastName!.errors!['required']">
+          LastName is Required
+        </div>
+        <div *ngIf="registerForm.controls!.lastName!.errors!['minlength']">
+          LastName minimum length is 3 digits
+        </div>
+      </div>
       <mat-form-field>
         <mat-label>Name to be called</mat-label>
         <input
@@ -70,23 +70,23 @@
           value=""
           [formControl]="registerForm.controls!.calledName"
         />
-        <div
-          class="alert alert-danger"
-          *ngIf="
-            registerForm.invalid &&
-            (registerForm.controls!.calledName!.touched ||
-              registerForm.controls!.calledName!.dirty) &&
-            registerForm.controls!.calledName!.errors
-          "
-        >
-          <div *ngIf="registerForm.controls!.calledName!.errors!['required']">
-            CalledName is Required
-          </div>
-          <div *ngIf="registerForm.controls!.calledName!.errors!['minlength']">
-            CalledName minimum length is 3 digits
-          </div>
-        </div>
       </mat-form-field>
+      <div
+        class="invalid-feedback"
+        *ngIf="
+          registerForm.invalid &&
+          (registerForm.controls!.calledName!.touched ||
+            registerForm.controls!.calledName!.dirty) &&
+          registerForm.controls!.calledName!.errors
+        "
+      >
+        <div *ngIf="registerForm.controls!.calledName!.errors!['required']">
+          CalledName is Required
+        </div>
+        <div *ngIf="registerForm.controls!.calledName!.errors!['minlength']">
+          CalledName minimum length is 3 digits
+        </div>
+      </div>
 
       <mat-form-field>
         <mat-label>E-mail</mat-label>
@@ -96,23 +96,23 @@
           value=""
           [formControl]="registerForm.controls!.email"
         />
-        <div
-          class="alert alert-danger"
-          *ngIf="
-            registerForm.invalid &&
-            (registerForm.controls!.email!.touched ||
-              registerForm.controls!.email!.dirty) &&
-            registerForm.controls!.email!.errors
-          "
-        >
-          <div *ngIf="registerForm.controls.email.errors?.['required']">
-            E-mail is Required
-          </div>
-          <div *ngIf="registerForm.controls.email.errors?.['email']">
-            Should be a email
-          </div>
-        </div>
       </mat-form-field>
+      <div
+        class="invalid-feedback"
+        *ngIf="
+          registerForm.invalid &&
+          (registerForm.controls!.email!.touched ||
+            registerForm.controls!.email!.dirty) &&
+          registerForm.controls!.email!.errors
+        "
+      >
+        <div *ngIf="registerForm.controls.email.errors?.['required']">
+          E-mail is Required
+        </div>
+        <div *ngIf="registerForm.controls.email.errors?.['email']">
+          Should be a email
+        </div>
+      </div>
       <mat-form-field>
         <mat-label>Password</mat-label>
         <input
@@ -122,27 +122,27 @@
           value=""
           [formControl]="registerForm.controls!.password"
         />
-        <div
-          class="alert alert-danger"
-          *ngIf="
-            registerForm.invalid &&
-            (registerForm.controls!.password!.touched ||
-              registerForm.controls!.password!.dirty) &&
-            registerForm.controls!.password!.errors
-          "
-        >
-          <div *ngIf="registerForm.controls!.password!.errors!['required']">
-            Password is Required
-          </div>
-          <div *ngIf="registerForm.controls!.password!.errors!['pattern']">
-            Password is invalid. It should be between 8 and 15 digits, 1 Upper
-            letter, 1 Lower Letter, 1 Special Character and 1 Number
-          </div>
-          <div *ngIf="registerForm.hasError('nomatch')">
-            Password does not match with ConfirmPassword
-          </div>
-        </div>
       </mat-form-field>
+      <div
+        class="invalid-feedback"
+        *ngIf="
+          registerForm.invalid &&
+          (registerForm.controls!.password!.touched ||
+            registerForm.controls!.password!.dirty) &&
+          registerForm.controls!.password!.errors
+        "
+      >
+        <div *ngIf="registerForm.controls!.password!.errors!['required']">
+          Password is Required
+        </div>
+        <div *ngIf="registerForm.controls!.password!.errors!['pattern']">
+          Password is invalid. It should be between 8 and 15 digits, 1 Upper
+          letter, 1 Lower Letter, 1 Special Character and 1 Number
+        </div>
+        <div *ngIf="registerForm.hasError('nomatch')">
+          Password does not match with ConfirmPassword
+        </div>
+      </div>
       <mat-form-field>
         <mat-label>Confirm Password</mat-label>
         <input
@@ -152,31 +152,29 @@
           value=""
           [formControl]="registerForm.controls!.confirmPassword"
         />
-        <div
-          class="alert alert-danger"
-          *ngIf="
-            registerForm.invalid &&
-            (registerForm.controls!.confirmPassword!.touched ||
-              registerForm.controls!.confirmPassword!.dirty) &&
-            registerForm.controls!.confirmPassword!.errors
-          "
-        >
-          <div
-            *ngIf="registerForm.controls!.confirmPassword!.errors!['required']"
-          >
-            Confirm Password is Required
-          </div>
-          <div
-            *ngIf="registerForm.controls!.confirmPassword!.errors!['pattern']"
-          >
-            Confirm Password is invalid. It should be between 8 and 15 digits, 1
-            Upper letter, 1 Lower Letter, 1 Special Character and 1 Number
-          </div>
-          <div *ngIf="registerForm.hasError('nomatch')">
-            Password does not match with ConfirmPassword
-          </div>
-        </div>
       </mat-form-field>
+      <div
+        class="invalid-feedback"
+        *ngIf="
+          registerForm.invalid &&
+          (registerForm.controls!.confirmPassword!.touched ||
+            registerForm.controls!.confirmPassword!.dirty) &&
+          registerForm.controls!.confirmPassword!.errors
+        "
+      >
+        <div
+          *ngIf="registerForm.controls!.confirmPassword!.errors!['required']"
+        >
+          Confirm Password is Required
+        </div>
+        <div *ngIf="registerForm.controls!.confirmPassword!.errors!['pattern']">
+          Confirm Password is invalid. It should be between 8 and 15 digits, 1
+          Upper letter, 1 Lower Letter, 1 Special Character and 1 Number
+        </div>
+        <div *ngIf="registerForm.hasError('nomatch')">
+          Password does not match with ConfirmPassword
+        </div>
+      </div>
 
       <div>
         <button
@@ -187,7 +185,8 @@
         >
           <mat-icon>clear</mat-icon> Clear
         </button>
-        <button mat-raised-button color="primary" class="buttons">
+        <button mat-raised-button color="primary" class="buttons"
+        [disabled]="!registerForm.valid">
           <mat-icon>keyboard_return</mat-icon>Submit
         </button>
       </div>

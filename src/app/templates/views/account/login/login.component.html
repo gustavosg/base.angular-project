@@ -17,7 +17,7 @@
         <!-- [formControl]="loginForm.controls['login']" -->
 
         <div
-          class="alert alert-danger"
+          class="invalid-feedback"
           *ngIf="
             loginForm.invalid &&
             (loginForm.touched || loginForm.dirty) &&
@@ -46,7 +46,7 @@
         />
 
         <div
-          class="alert alert-danger"
+          class="invalid-feedback"
           *ngIf="
             loginForm.invalid &&
             (loginForm.touched || loginForm.dirty) &&

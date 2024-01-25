@@ -18,3 +18,20 @@ a:hover {
 .v-middle {
   vertical-align: middle;
 }
+
+form {
+  mat-card {
+    mat-card-content {
+      div.invalid-feedback {
+        display: contents;
+        width: 100%;
+
+        .ng-star-inserted {
+          display: contents !important;
+          background-color: transparent;
+          border: 0px;
+        }
+      }
+    }
+  }
+}

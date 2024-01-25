@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Subscription } from 'rxjs';
+import { comparePasswords } from '../../../../utils';
 
 @Component({
   imports: [
@@ -31,7 +32,7 @@ import { Subscription } from 'rxjs';
   styleUrl: './change-password.component.scss'
 })
 export class ChangePasswordComponent {
-  changePasswordForm: FormGroup;
+  changePasswordForm: FormGroup<IChangePasswordRequest>;
   subscription = new Subscription();
 
 
@@ -42,10 +43,10 @@ export class ChangePasswordComponent {
     private toastr: ToastrService
   ) {
     this.changePasswordForm = new FormGroup<IChangePasswordRequest>({
-      currentPassword: new FormControl<string>(''),
-      newPassword: new FormControl<string>(''),
-      confirmPassword: new FormControl<string>(''),
-    });
+      currentPassword: new FormControl<string>('', { nonNullable: true, validators: [Validators.required, Validators.pattern("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,15}")] }),
+      newPassword: new FormControl<string>('', { nonNullable: true, validators: [Validators.required, Validators.pattern("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,15}")] }),
+      confirmPassword: new FormControl<string>('', { nonNullable: true, validators: [Validators.required, Validators.pattern("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,15}")] }),
+    }, { validators: comparePasswords('newPassword', 'confirmPassword') });
 
   }
 
@@ -60,8 +61,11 @@ export class ChangePasswordComponent {
   }
 
   async submit(): Promise<void> {
+
+    let sendData: IChangePasswordRequest = this.changePasswordForm.value as IChangePasswordRequest;
+
     this.subscription.add(
-      await this.accountService.changePassword(this.changePasswordForm.value)
+      await this.accountService.changePassword(sendData)
         .subscribe({
           next: (response: IChangePasswordResponse) => {
 
